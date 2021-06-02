@@ -7,7 +7,7 @@ public class HashTableVariant<T,E> {
     private static final int INITIAL_SIZE=16;
     private LinkedList<HashEntry<T,E>> data[];
 
-    private class HashEntry<T,E>{
+    private static class HashEntry<T,E>{
         T key;
         E value;
         HashEntry<T,E> next;

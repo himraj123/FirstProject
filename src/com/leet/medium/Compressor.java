@@ -2,7 +2,7 @@ package com.leet.medium;
 
 public class Compressor {
     public static void main(String[] args) {
-        System.out.println(compressor("aabbbc"));
+        System.out.println(compressor("abc"));
         System.out.println(deCompress(compressor("aabbbc")));
     }
 
@@ -20,8 +20,8 @@ public class Compressor {
                 counter=0;
             }
         }
-
-        return sb.length() <= str.length() ? sb.toString():str;
+        return sb.toString();
+        //return sb.length() <= str.length() ? sb.toString():str;
     }
 
     public static String deCompress(String str){
