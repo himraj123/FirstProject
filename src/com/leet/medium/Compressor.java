@@ -2,7 +2,7 @@ package com.leet.medium;
 
 public class Compressor {
     public static void main(String[] args) {
-        System.out.println(compressor("abc"));
+        System.out.println(compressor("aabbbc"));
         System.out.println(deCompress(compressor("aabbbc")));
     }
 
@@ -13,10 +13,11 @@ public class Compressor {
             counter++;
             if(i+1>=str.length()||str.charAt(i)!=str.charAt(i+1)){
 
+
+                sb.append(str.charAt(i));
                 if(counter>0) {
                     sb.append(counter);
                 }
-                sb.append(str.charAt(i));
                 counter=0;
             }
         }
@@ -27,11 +28,9 @@ public class Compressor {
     public static String deCompress(String str){
         StringBuilder sb = new StringBuilder();
         int count=0;
-        for(int i=0;i<str.length();i++){
-            if(Character.isDigit(str.charAt(i))){
-                count = str.charAt(i)-'0';
-            }
-            else{
+        for(int i=0;i<str.length()-1;i++){
+            if(Character.isDigit(str.charAt(i+1))){
+                count = str.charAt(i+1)-'0';
                 while(count>0){
                     sb.append(str.charAt(i));
                     count--;
